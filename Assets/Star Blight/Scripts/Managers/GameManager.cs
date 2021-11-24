@@ -117,11 +117,32 @@ public class GameManager : MonoBehaviour
     public void RestartFromCheckpoint()
     {
         GameObject[] _allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] _allProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        GameObject[] _allEnemyProjectiles = GameObject.FindGameObjectsWithTag("EnemyProjectile");
+        GameObject[] _allEnemyExplosions = GameObject.FindGameObjectsWithTag("Explosion");
 
-        foreach(var enemy in _allEnemies)
+
+
+        foreach (var enemy in _allEnemies)
         {
             Destroy(enemy);
         }
+
+        foreach (var projectile in _allProjectiles)
+        {
+            Destroy(projectile);
+        }
+
+        foreach (var enemyProjectile in _allEnemyProjectiles)
+        {
+            Destroy(enemyProjectile);
+        }
+
+        foreach (var explosion in _allEnemyExplosions)
+        {
+            Destroy(explosion);
+        }
+
         SettingsManager.Instance.FadeIn();
         StartCoroutine(SpawnManager.Instance.CheckpointTimeline());
     }

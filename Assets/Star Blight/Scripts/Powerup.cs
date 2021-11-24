@@ -48,13 +48,7 @@ public class Powerup : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.tag == "EnemyProjectile")
-        {
-                  
-            Destroy(gameObject);
-        }
-
-
+       
     }
 }
 

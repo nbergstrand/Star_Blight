@@ -162,6 +162,12 @@ public class BossAI : MonoBehaviour
     IEnumerator DyingRoutine()
     {
         GameManager.Instance.IncreaseScore(_scoreAmount);
+
+        foreach (var collider in GetComponents<BoxCollider>())
+        {
+            collider.enabled = false;
+        }
+
         foreach (var effectPos in _effectPos)
         {
             AudioManager.Instance.PlayExplosionSound();
