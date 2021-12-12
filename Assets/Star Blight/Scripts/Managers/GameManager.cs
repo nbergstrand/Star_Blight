@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         GameObject[] _allProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
         GameObject[] _allEnemyProjectiles = GameObject.FindGameObjectsWithTag("EnemyProjectile");
         GameObject[] _allEnemyExplosions = GameObject.FindGameObjectsWithTag("Explosion");
-
+        GameObject[] _allPowerUps = GameObject.FindGameObjectsWithTag("Explosion");
 
 
         foreach (var enemy in _allEnemies)
@@ -141,6 +141,11 @@ public class GameManager : MonoBehaviour
         foreach (var explosion in _allEnemyExplosions)
         {
             Destroy(explosion);
+        }
+
+        foreach (var powerUp in _allPowerUps)
+        {
+            Destroy(powerUp);
         }
 
         SettingsManager.Instance.FadeIn();

@@ -14006,7 +14006,7 @@ MonoBehaviour:
   - {fileID: 425921872}
   - {fileID: 569484628}
   - {fileID: 448997079}
-  _checkPointTime: 240
+  _checkPointTime: 225
 --- !u!4 &1169066897
 Transform:
   m_ObjectHideFlags: 0
