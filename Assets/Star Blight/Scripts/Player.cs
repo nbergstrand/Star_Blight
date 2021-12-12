@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
                 
         newPosition.y = Mathf.Clamp(newPosition.y, -16f, 16f);
 
-        newPosition.x = Mathf.Clamp(newPosition.x, -30f, 25f);
+        newPosition.x = Mathf.Clamp(newPosition.x, -30f, 30f);
                 
         transform.position = newPosition;
     }

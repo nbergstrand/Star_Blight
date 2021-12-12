@@ -31,6 +31,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private Transform[] _spawnPoints;
 
+    [SerializeField]
+    private int _checkPointTime;
+
     private PlayableDirector _playableDirector;
     private SignalReceiver _signalReceiver;
 
@@ -60,20 +63,22 @@ public class SpawnManager : MonoBehaviour
         if(_checkpointReached)
         {
             _signalReceiver.enabled = false;
-            _playableDirector.time = 215;
+            _playableDirector.time = _checkPointTime;
             _playableDirector.enabled = true;
-             yield return new WaitForSeconds(0.25f);
+             yield return new WaitForSeconds(0.5f);
             _signalReceiver.enabled = true;
             GameManager.Instance.SetScore(_checkpointScore);
+            _playableDirector.Play();
         }
         else
         {
             _signalReceiver.enabled = false;
             _playableDirector.time = 0;
             _playableDirector.enabled = true;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
             _signalReceiver.enabled = true;
             GameManager.Instance.SetScore(0);
+            _playableDirector.Play();
         }
        
 
@@ -125,11 +130,22 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    public void Mid_Level_Boss()
+    public void Mid_Level_Boss_First()
     {
         if (_isPlayerAlive)
         {
             Instantiate(_enemies[3], _spawnPoints[1].position, Quaternion.identity);
+
+        }
+    }
+
+    public void Mid_Level_Boss_Second()
+    {
+        if (_isPlayerAlive)
+        {
+            Instantiate(_enemies[11], _spawnPoints[0].position, Quaternion.Euler(new Vector3(90f, 180f, 0f)));
+            Instantiate(_enemies[12], _spawnPoints[2].position, Quaternion.Euler(new Vector3(90f, 180f, 0f)));
+
 
         }
     }

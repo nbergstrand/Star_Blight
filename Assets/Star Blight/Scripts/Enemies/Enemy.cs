@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     Transform _projectileSpawnPos;
 
+    [SerializeField]
+    Vector3 _startPos;
+
     float _timeToNextShot;
 
     bool _isDead = false;
@@ -144,7 +147,7 @@ public class Enemy : MonoBehaviour
                 if (transform.position.x <= 16 && _playable.enabled == false)
                 {
                     _playable.enabled = true;
-                    transform.position = new Vector3(16f, 0f, 0f);
+                    transform.position = _startPos;
 ;                    _speed = 0;
                 }
                 break;
@@ -160,7 +163,8 @@ public class Enemy : MonoBehaviour
     
     private void Shoot()
     {
-
+        if (_projectile == null)
+            return;
 
         if (Time.time > _timeToNextShot && GameManager.Instance.IsPlayerAlive)
         {
@@ -194,10 +198,14 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            
-            StartCoroutine(TakeDamage());
+            if (transform.position.x < 32f)
+            {
+                StartCoroutine(TakeDamage());
 
-          
+            }
+
+
+
 
         }
     }
@@ -236,6 +244,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator TakeDamage()
     {
+                   
         
         _mainRenderer.material.color = Color.red;
         _hits--;

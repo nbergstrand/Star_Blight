@@ -38,10 +38,10 @@ public class BossAI : MonoBehaviour
     float _timeToNextShotSide;
 
     [SerializeField]
-    int _hits = 200;
+    int _hits;
 
-    int _upperHitsLimit = 140;
-    int _lowerHitsLimit = 60;
+    int _upperHitsLimit;
+    int _lowerHitsLimit;
 
 
     bool _isDead = false;
@@ -72,6 +72,11 @@ public class BossAI : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         _playableDirector = GetComponent<PlayableDirector>();
+
+        _upperHitsLimit = (int)(_hits * 0.6f);
+        _lowerHitsLimit = (int)(_hits * 0.3f);
+
+        DifficultyAdjustments();
      
     }
 

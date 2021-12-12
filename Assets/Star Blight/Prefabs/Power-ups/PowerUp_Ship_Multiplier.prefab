@@ -155,11 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa71f643325fd74f8e6c73b2b80c021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 5
   _hits: 5
   _scoreAmount: 100
   _projectile: {fileID: 0}
   _projectileSpawnPos: {fileID: 0}
+  _startPos: {x: 0, y: 0, z: 0}
   _enemyType: 0
   _waveMovementSpeed: 0
   _waveMovementAmount: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   _powerUp: {fileID: 9218509722644276004, guid: e4d96b44b405f9341b56cd5e458239c3,
     type: 3}
   _powerUpPos: {fileID: 4703924070910912196}
+  _target: {fileID: 0}
 --- !u!320 &4703924072357742684
 PlayableDirector:
   m_ObjectHideFlags: 0

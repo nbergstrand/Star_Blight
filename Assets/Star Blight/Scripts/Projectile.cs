@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
-        if (transform.position.x > 35f)
+        if (transform.position.x > 33f)
         {
             if(transform.parent == null || transform.parent.name == "ProjectilesParent")
             {

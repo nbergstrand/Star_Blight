@@ -14,8 +14,6 @@ public class Powerup : MonoBehaviour
 
     Transform _player;
 
-    [SerializeField]
-    float _absorptionSpeed;
     
 
     private void Start()
@@ -31,7 +29,12 @@ public class Powerup : MonoBehaviour
 
 
     }
-        
+
+    private void Update()
+    {
+        transform.Translate(Vector3.left * _speed * Time.deltaTime);
+    }
+
 
     private void OnTriggerEnter(Collider collision)
     {
